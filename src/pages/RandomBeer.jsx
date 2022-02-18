@@ -1,17 +1,20 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-function RandomBeer({ beers, setBeers }) {
+function RandomBeer() {
+  const [beers, setBeers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios
       .get("https://ih-beers-api2.herokuapp.com/beers/random")
       .then((res) => {
-        console.log("res", res.data);
         setBeers(res.data);
         setIsLoading(false);
-      });
+      })
+      .catch((err) => {
+        console.log(err);
+      })
   }, []);
 
   return (

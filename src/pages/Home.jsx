@@ -6,7 +6,6 @@ function Home() {
           <h1>Welcome to IronBeers club </h1>
           <img src={beers} alt=''/>
       </>
-    
   );
 }
 

@@ -1,26 +1,40 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-function SingleBeer({beers}) {
+function SingleBeer() {
+  const [beer, setBeer] = useState([]);
   const beerId = useParams();
-  const searchBeer = beers.find((pivo) => pivo._id === beerId._id);
+
+  useEffect(() => {
+    axios
+      .get(`https://ih-beers-api2.herokuapp.com/beers/${beerId._id}`)
+      .then((res) => {
+        setBeer(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }, [beerId._id]);
+
 
   return (
     <div>
-      <h2>{`${searchBeer.name}' details`}</h2>
-      <img src={searchBeer.image_url} alt="" />
-      <h3>{searchBeer.name}</h3>
-      <p>"{searchBeer.tagline}"</p>
+      <h2>{`${beer.name}' details`}</h2>
+      <img src={beer.image_url} alt="" />
+      <h3>{beer.name}</h3>
+      <p>"{beer.tagline}"</p>
       <p>
-        <strong>First brewed:</strong> {searchBeer.first_brewed}
+        <strong>First brewed:</strong> {beer.first_brewed}
       </p>
       <p>
-        <strong>Attenuation level:</strong> {searchBeer.attenuation_level}
+        <strong>Attenuation level:</strong> {beer.attenuation_level}
       </p>
       <p>
-        <strong>Description:</strong> {searchBeer.description}
+        <strong>Description:</strong> {beer.description}
       </p>
       <p>
-        <strong>Contributed by:</strong> {searchBeer.contributed_by}
+        <strong>Contributed by:</strong> {beer.contributed_by}
       </p>
     </div>
   );
