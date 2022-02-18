@@ -14,29 +14,34 @@ function SingleBeer() {
       })
       .catch((err) => {
         console.log(err);
-      })
+      });
   }, [beerId._id]);
 
-
   return (
-    <div>
-      <h2>{`${beer.name}' details`}</h2>
-      <img src={beer.image_url} alt="" />
-      <h3>{beer.name}</h3>
-      <p>"{beer.tagline}"</p>
-      <p>
-        <strong>First brewed:</strong> {beer.first_brewed}
-      </p>
-      <p>
-        <strong>Attenuation level:</strong> {beer.attenuation_level}
-      </p>
-      <p>
-        <strong>Description:</strong> {beer.description}
-      </p>
-      <p>
-        <strong>Contributed by:</strong> {beer.contributed_by}
-      </p>
-    </div>
+    <div className="container">
+    <h2>{`${beer.name}' details`}</h2>
+    <div className="card">
+      
+      <div className="pic">
+        <img src={beer.image_url} alt="" />
+      </div>
+      <div className="info">
+        <h3>{beer.name}</h3>
+        <p>"{beer.tagline}"</p>
+        <p>
+          <strong>First brewed:</strong> {beer.first_brewed}
+        </p>
+        <p>
+          <strong>Attenuation level:</strong> {beer.attenuation_level}
+        </p>
+        <p>
+          <strong>Description:</strong> {beer.description}
+        </p>
+        <p>
+          <strong>Contributed by:</strong> {beer.contributed_by}
+        </p>
+      </div>
+    </div></div>
   );
 }
 

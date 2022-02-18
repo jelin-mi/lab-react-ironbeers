@@ -32,7 +32,7 @@ function ListBeers() {
   }, []);
 
   return (
-    <>
+    <div className="container">
     <h2>List of all beers</h2>
       {isLoading ? (
         "Loading..."
@@ -42,19 +42,24 @@ function ListBeers() {
           
           {beers.map((beer) => {
             return (
-              <div key={beer._id}>
+              <div key={beer._id} className="card">
+              <div className="pic">
                 <img src={beer.image_url} alt="" />
+                </div>
+
+                <div className="info">
                 <Link to={beer._id}>
                   <h3>{beer.name}</h3>
                 </Link>
                 <p>{beer.tagline}</p>
                 <p>{beer.contributed_by}</p>
+                </div>
               </div>
             );
           })}
         </div>
       )}
-    </>
+    </div>
   );
 }
 

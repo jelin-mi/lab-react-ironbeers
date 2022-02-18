@@ -45,75 +45,95 @@ function NewBeer() {
         setAttenuationLevel();
         setContributedBy("");
 
-        navigate("/beers")
+        navigate("/beers");
       })
       .catch((err) => {
         console.log(err);
-      })
+      });
   };
 
   return (
     <div>
       <h2>Add new beer</h2>
-      <form onSubmit={handleSubmit}>
-        <label>Name</label>
-        <input
-          type="text"
-          placeholder="Name of a beer"
-          name="name"
-          value={name}
-          onChange={handleName}
-        />
+      <form onSubmit={handleSubmit} className="form">
+        <div className="label-input">
+          <label>Name</label>
+          <input
+            type="text"
+            /* placeholder="Name of a beer"*/
+            name="name"
+            value={name}
+            onChange={handleName}
+          />
+        </div>
 
-        <input
-          type="text"
-          placeholder="Tagline of a beer"
-          name="tagline"
-          value={tagline}
-          onChange={handleTagline}
-        />
+        <div className="label-input">
+          <label>Tagline</label>
+          <input
+            type="text"
+            /*placeholder="Tagline of a beer"*/
+            name="tagline"
+            value={tagline}
+            onChange={handleTagline}
+          />
+        </div>
 
-        <input
-          type="text"
-          placeholder="Description of a beer"
-          name="description"
-          value={description}
-          onChange={handleDescription}
-        />
+        <div className="label-input">
+          <label>Description</label>
+          <input
+            type="text"
+            /*  placeholder="Description of a beer"*/
+            name="description"
+            value={description}
+            onChange={handleDescription}
+          />
+        </div>
 
-        <input
-          type="text"
-          placeholder="First brewed of a beer"
-          name="firstBrewed"
-          value={firstBrewed}
-          onChange={handleFirstBrewed}
-        />
-        <input
-          type="text"
-          placeholder="Brewers tips of a beer"
-          name="brewersTips"
-          value={brewersTips}
-          onChange={handleBrewersTips}
-        />
+        <div className="label-input">
+          <label>First Brewed</label>
+          <input
+            type="text"
+            /* placeholder="First brewed of a beer"*/
+            name="firstBrewed"
+            value={firstBrewed}
+            onChange={handleFirstBrewed}
+          />
+        </div>
 
-        <input
-          type="number"
-          placeholder="Attenuation level of a beer"
-          name="attenuationLevel"
-          value={attenuationLevel}
-          onChange={handleAttenuationLevel}
-        />
-        <input
-          type="text"
-          placeholder="Beer contributed by..."
-          name="contributedBy"
-          value={contributedBy}
-          onChange={handleContributedBy}
-        />
+        <div className="label-input">
+          <label>Brewers Tips</label>
+          <input
+            type="text"
+            /* placeholder="Brewers tips of a beer"*/
+            name="brewersTips"
+            value={brewersTips}
+            onChange={handleBrewersTips}
+          />
+        </div>
 
-        <button type="submit">
-          Submit a Beer
-        </button>
+        <div className="label-input">
+          <label>Attenuation Level</label>
+          <input
+            type="number"
+            /*  placeholder="Attenuation level of a beer"*/
+            name="attenuationLevel"
+            value={attenuationLevel}
+            onChange={handleAttenuationLevel}
+          />
+        </div>
+
+        <div className="label-input">
+          <label>Contributed By</label>
+          <input
+            type="text"
+            /* placeholder="Beer contributed by..."*/
+            name="contributedBy"
+            value={contributedBy}
+            onChange={handleContributedBy}
+          />
+        </div>
+
+        <button type="submit">Submit a Beer</button>
       </form>
     </div>
   );

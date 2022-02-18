@@ -18,13 +18,17 @@ function RandomBeer() {
   }, []);
 
   return (
-    <>
+    <div className="container">
+    <h2>Random beer</h2>
       {isLoading ? (
         "Loading..."
       ) : (
-        <div>
-          <h2>Random beer</h2>
+        <div className="card">
+        <div className="pic">
           <img src={beers.image_url} alt="" />
+          </div>
+
+          <div className="info">
           <h3>{beers.name}</h3>
           <p>"{beers.tagline}"</p>
           <p>
@@ -38,10 +42,10 @@ function RandomBeer() {
           </p>
           <p>
             <strong>Contributed by:</strong> {beers.contributed_by}
-          </p>
+          </p></div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
